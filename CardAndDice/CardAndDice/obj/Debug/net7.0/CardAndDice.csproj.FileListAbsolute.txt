@@ -1,0 +1,15 @@
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\bin\Debug\net7.0\CardAndDice.exe
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\bin\Debug\net7.0\CardAndDice.deps.json
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\bin\Debug\net7.0\CardAndDice.runtimeconfig.json
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\bin\Debug\net7.0\CardAndDice.dll
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\bin\Debug\net7.0\CardAndDice.pdb
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\CardAndDice.csproj.AssemblyReference.cache
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\CardAndDice.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\CardAndDice.AssemblyInfoInputs.cache
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\CardAndDice.AssemblyInfo.cs
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\CardAndDice.csproj.CoreCompileInputs.cache
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\CardAndDice.dll
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\refint\CardAndDice.dll
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\CardAndDice.pdb
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\CardAndDice.genruntimeconfig.cache
+D:\Github\ORMProject\CardAndDice\CardAndDice\CardAndDice\obj\Debug\net7.0\ref\CardAndDice.dll
