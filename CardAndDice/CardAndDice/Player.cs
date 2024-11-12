@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace CardAndDice
 {
     internal class Player
@@ -14,6 +13,7 @@ namespace CardAndDice
             step = 0;
             extraStep = 0;
         }
+
         public void ApplyExtraStep(int steps)
         {
             extraStep += steps;
@@ -25,8 +25,7 @@ namespace CardAndDice
             return random.Next(1, 7);
         }
 
-
-        private void ChooseCard(Player opponent)
+        private void ChooseCard(Player opponent, int diceRoll)
         {
             Random random = new Random();
             int cardType = random.Next(1, 5);
@@ -36,32 +35,28 @@ namespace CardAndDice
                     Rabbit();
                     break;
                 case 2:
-                    Turtle();
+                    Turtle(diceRoll);
                     break;
                 case 3:
                     Angel(opponent);
                     break;
                 case 4:
-                    Devil(opponent);
+                    Devil(opponent, diceRoll);
                     break;
             }
         }
 
-
         private void Rabbit()
         {
-            extraStep += 2;
+            ApplyExtraStep(2);
             Console.WriteLine($"{playerName} 獲得了兔子卡，步數增加 2。");
         }
 
-
-        private void Turtle()
+        private void Turtle(int diceRoll)
         {
-            int move = RollDice();
-            extraStep += (move <= 3) ? 1 : -2;
+            ApplyExtraStep((diceRoll <= 3) ? 1 : -2);
             Console.WriteLine($"{playerName} 獲得了烏龜卡，步數減少，最少移動 1 步。");
         }
-
 
         private void Angel(Player opponent)
         {
@@ -69,14 +64,11 @@ namespace CardAndDice
             Console.WriteLine($"{playerName} 使用了天使卡，對手 {opponent.playerName} 步數增加 2。");
         }
 
-
-        private void Devil(Player opponent)
+        private void Devil(Player opponent, int diceRoll)
         {
-            int move = RollDice();
-            opponent.ApplyExtraStep((move <= 3) ? 1 : -2);
+            opponent.ApplyExtraStep((diceRoll <= 3) ? 1 : -2);
             Console.WriteLine($"{playerName} 使用了惡魔卡，對手 {opponent.playerName} 步數減少，最少移動 1 步。");
         }
-
 
         public bool Walk(Player opponent)
         {
@@ -84,12 +76,10 @@ namespace CardAndDice
             step += tempStep;
             Console.WriteLine($"{playerName} 擲骰子，移動了 {tempStep} 步，當前位置：{step}");
 
-
             if (step % 10 == 0 && step < 100)
             {
-                ChooseCard(opponent);
+                ChooseCard(opponent, tempStep);
             }
-
 
             step += extraStep;
             if (extraStep != 0)
@@ -98,11 +88,9 @@ namespace CardAndDice
                 extraStep = 0;
             }
 
-
             if (step >= 100)
             {
                 Console.WriteLine($"{playerName} 到達 100 格，獲得勝利！");
-
                 return true;
             }
             return false;
