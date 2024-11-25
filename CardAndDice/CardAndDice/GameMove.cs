@@ -39,39 +39,56 @@ namespace CardAndDice
         private int Angel(Player me, Player opponent)
         {
             Console.WriteLine($"{me.GetName()} 得到了天使卡，下回合對手 {opponent.GetName()} 步數增加 2。");
-            return 3;
+            return 1;
         }
 
         private int Devil(Player me, Player opponent)
         {
             Console.WriteLine($"{me.GetName()} 得到了惡魔卡，下回合對手 {opponent.GetName()} 步數減少，最少移動 1 步。");
-            return 4;
+            return 2;
         }
-        private int useCard(int cardNumber) {
+        private int useCard(int cardNumber,int diceNumber) {
+            int extraStep = 0;
             switch (cardNumber) { 
+                case 0:
+                    extraStep = 0;
+                    break;
                 case 1:
+                    diceNumber += 2;
                     break;
                 case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
+                    if (diceNumber <= 3)
+                    {
+                        diceNumber = 1;
+                    }
+                    else
+                    {
+                        diceNumber -= 2;
+                    }
                     break;
             }
-        
+            return extraStep;
         }
-        public bool Walk(Player me, Player opponent, int Card)
+        public bool Walk(Player me, Player opponent)
         {
             
             int tempStep = RollDice();
-            int Card = 0;
             int step =me.GetStep();
+            if (me.getCard() != 0)
+            {
+                Console.WriteLine($"{me.GetName()} 受卡片效果影響，本回合移動將變化");
+                tempStep=useCard(me.getCard(), tempStep);
+                me.setCard(0);
+            }
             step += tempStep;
             Console.WriteLine($"{me.GetName()} 擲骰子，移動了 {tempStep} 步，當前位置：{step}");
-
+            //兔子卡，每次移動步數 +2，持續一回合
+            //烏龜卡，每次移動步數 -2，但若擲出步數 <=3，就走 1 步(至少可以走一步的意思)，持續一回合
+            //天使卡，同兔子卡，只是作用在對手身上
+            //惡魔卡，同烏龜卡，只是作用在對手身上
             if (step % 10 == 0 && step < 100)
             {
-                Card= ChooseCard(me, opponent);
+                me.setCard(ChooseCard(me, opponent));
             }
 
             step += extraStep;
