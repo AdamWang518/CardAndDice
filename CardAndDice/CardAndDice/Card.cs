@@ -30,7 +30,7 @@ namespace CardAndDice
             }
             return cardType;
         }
-        public static void useCard(Player me,Player opponent) {
+        public static void UseCard(Player me,Player opponent) {
             switch (me.Card)
             {
                 
