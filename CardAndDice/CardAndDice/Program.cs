@@ -16,30 +16,11 @@ namespace CardAndDice
         //每回合會顯示你和對手目前所在位置，
         //若你勝利，分數就是 100 分，
         //若對手勝利，分數就是你所在格子，
+
         static void Main(string[] args)
         {
-            Player playerA = new Player("玩家A");
-            Player playerB = new Player("電腦");
-
-            bool gameEnded = false;
-            while (!gameEnded)
-            {
-                gameEnded = playerA.Walk(playerB);
-                if (gameEnded)
-                {
-                    Console.WriteLine("遊戲結束！");
-                    Console.WriteLine($"分數是100分");
-                    break;
-                }
-                gameEnded = playerB.Walk(playerA);
-                if (gameEnded)
-                {
-                    Console.WriteLine("遊戲結束！");
-                    Console.WriteLine($"分數是{playerA.GetStep()}分");
-
-                    break;
-                }
-            }
+            GameProcess  gameProcess = new GameProcess();
+            gameProcess.Gameing();
         }
     }
 }
