@@ -13,10 +13,13 @@ namespace CardAndDice
             //封裝: 使用者不應該也不需要知道該類別或該方法是如何被實現的，只要
             Player playerA = new Player("玩家A");
             Player playerB = new Player("電腦");
+            int round = 1;
             bool gameEnded = false;
             while (!gameEnded)
             {
-                gameEnded= Walk(playerA, playerB);
+                Console.WriteLine($"第{round}回合:");
+                round++;
+                gameEnded = Walk(playerA, playerB);
                 if (gameEnded)
                 {
                     Console.WriteLine("遊戲結束！");
