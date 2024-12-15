@@ -19,6 +19,9 @@ namespace CardAndDice
             bool gameEnded = false;
             while (!gameEnded)
             {
+                foreach (Player p in players) { 
+                
+                }
                 Console.WriteLine($"第{round}回合:");
                 round++;
                 gameEnded = Walk(playerA, playerB);
@@ -43,6 +46,7 @@ namespace CardAndDice
             Player player = new Player(name);
             players.Add(player);
         }
+
         public bool Walk(Player me, Player opponent)
         {
             int point = me.RollDice();
