@@ -8,6 +8,8 @@ namespace CardAndDice
 {
     internal class DiceGame
     {
+        List<Player> players = new List<Player>();
+        List<string> playerNames = new List<string> { "玩家A", "玩家B", "電腦" };
         public void Gameing()
         {
             //封裝: 使用者不應該也不需要知道該類別或該方法是如何被實現的，只要
@@ -36,6 +38,10 @@ namespace CardAndDice
             }
             return;
 
+        }
+        public void createPlayer(string name) { 
+            Player player = new Player(name);
+            players.Add(player);
         }
         public bool Walk(Player me, Player opponent)
         {
